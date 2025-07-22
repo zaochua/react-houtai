@@ -1,16 +1,25 @@
 import {Row, Col, Card} from "antd";
 import "./home.css";
+import {useEffect} from "react";
+import {getData} from "../../api";
 
 const Home = () => {
-    const userImg=require("../../assets/images/user.png")
+    const userImg = require("../../assets/images/user.png");
+
+    useEffect(() => {
+        getData().then(res=>{
+            console.log(res);
+        })
+    }, []);
+
     return (<Row className={"home"}>
         <Col span={8}>
             <Card hoverable>
-                <div className={'user'}>
+                <div className={"user"}>
                     <img src={userImg} alt=""/>
                     <div className={"userinfo"}>
-                        <p className={'name'}>Admin</p>
-                        <p align={'access'}>超级管理员</p>
+                        <p className={"name"}>Admin</p>
+                        <p align={"access"}>超级管理员</p>
                     </div>
                 </div>
 
