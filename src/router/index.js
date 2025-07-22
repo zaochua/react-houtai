@@ -1,4 +1,4 @@
-import {createBrowserRouter} from "react-router-dom";
+import {createBrowserRouter, Navigate} from "react-router-dom";
 import Main from "../pages/main";
 import Home from "../pages/home";
 import Mall from "../pages/mall";
@@ -11,6 +11,11 @@ const routes = [
         path: "/",
         Component: Main,
         children: [
+            {
+                path: "/",
+                // 重定向
+                element: <Navigate to="home" replace/>
+            },
             {
                 path: "home",
                 Component: Home
@@ -25,13 +30,13 @@ const routes = [
             },
             {
                 path: "other",
-                children:[
+                children: [
                     {
-                        path:"pageOne",
+                        path: "pageOne",
                         Component: PageOne
                     },
                     {
-                        path:"pageTwo",
+                        path: "pageTwo",
                         Component: pageTwo
                     }
                 ]
