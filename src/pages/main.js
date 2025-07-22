@@ -3,6 +3,8 @@ import {Layout, theme} from "antd";
 import CommonAside from "../components/commonAside/index";
 import CommonHeader from "../components/commonHeader";
 import {useSelector} from "react-redux";
+import {Outlet} from "react-router-dom";
+
 
 const {Content} = Layout;
 
@@ -30,7 +32,7 @@ const collapse= useSelector(state => state.tab.isCollapse)
                         borderRadius: borderRadiusLG
                     }}
                 >
-                    Content
+<Outlet/>
                 </Content>
             </Layout>
         </Layout>

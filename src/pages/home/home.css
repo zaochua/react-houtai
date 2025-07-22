@@ -1,0 +1,30 @@
+.home img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 40px;
+}
+
+.user {
+    align-items: center;
+    display: flex;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #CCC;
+    margin-bottom: 20px;
+}
+
+.userinfo .name {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.login-info {
+    line-height: 24px;
+    color: #999;
+    font-size: 14px;
+}
+
+.login-info p span {
+    margin-left: 50px;
+    color: #666;
+}
