@@ -63,3 +63,13 @@
     text-align: center;
     color: #999;
 }
+
+
+.home .graph {
+    display: flex;
+    align-items: center;
+}
+
+.home .graph > div {
+    flex: 1;
+}

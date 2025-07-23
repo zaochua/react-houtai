@@ -1,8 +1,10 @@
-import {Row, Col, Card, Table} from "antd";
+import {Card, Col, Row, Table} from "antd";
 import "./home.css";
 import React, {useEffect, useState} from "react";
 import {getData} from "../../api";
 import * as Icon from "@ant-design/icons";
+import MyEcharts from "../../components/Echarts/index";
+
 
 const columns = [
     {
@@ -69,12 +71,44 @@ const Home = () => {
 
     useEffect(() => {
         getData().then(({data}) => {
-            const {tableData} = data.data;
+            const {tableData, orderData, userData, videoData} = data.data;
+
             setTableData(tableData);
+            const xdata = orderData.date;
+            const keyArray = Object.keys(orderData.data[0]);
+
+            const series = [];
+
+            keyArray.forEach(key => {
+
+                series.push({
+                    name: key,
+                    data: orderData.data.map(item => item[key]),
+                    type: "line"
+                });
+            });
+
+            setEchartData({
+                order: {xdata, series},
+                user: {
+                    xdata: userData.map(item => item.date),
+                    series: [
+                        {name: "新增用户", data: userData.map(item => item.new), type: "bar"},
+                        {name: "活跃用户", data: userData.map(item => item.active), type: "bar"}
+                    ]
+                },
+                video: {
+                    series: [
+                        {data: videoData, type: "pie"}
+                    ]
+                }
+            });
         });
     }, []);
 
     const [tableData, setTableData] = useState([]);
+    const [echartData, setEchartData] = useState([]);
+
     return (<Row className={"home"}>
         <Col span={8}>
             <Card hoverable>
@@ -96,24 +130,28 @@ const Home = () => {
             </Card>
         </Col>
 
-
         <Col span={16}>
             <div className={"num-box"}>
                 {
                     countData.map((item, index) => {
                         return (
                             <Card key={index}>
-                                <div className={"icon-box"} style={{background:item.color}}>
+                                <div className={"icon-box"} style={{background: item.color}}>
                                     {iconToElement(item.icon)}
                                 </div>
                                 <div className={"detail"}>
-                                    <p className={'num'}>￥{item.value}</p>
-                                    <p className={'text'}>{item.name}</p>
+                                    <p className={"num"}>￥{item.value}</p>
+                                    <p className={"text"}>{item.name}</p>
                                 </div>
                             </Card>
                         );
                     })
                 }
+            </div>
+            {echartData.order && <MyEcharts chartData={echartData.order} style={{height: "280px"}}/>}
+            <div className={"graph"}>
+                {echartData.user && <MyEcharts chartData={echartData.user} style={{height: "240px"}}/>}
+                {echartData.video && <MyEcharts chartData={echartData.video} isAxisChart={false} style={{height: "240px"}}/>}
             </div>
         </Col>
     </Row>);
