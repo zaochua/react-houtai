@@ -1,7 +1,8 @@
 import {Row, Col, Card, Table} from "antd";
 import "./home.css";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {getData} from "../../api";
+import * as Icon from "@ant-design/icons";
 
 const columns = [
     {
@@ -21,6 +22,48 @@ const columns = [
         dataIndex: "totalBuy"
     }
 ];
+
+// 订单统计数据
+const countData = [
+    {
+        "name": "今日支付订单",
+        "value": 1234,
+        "icon": "CheckCircleOutlined",
+        "color": "#2ec7c9"
+    },
+    {
+        "name": "今日收藏订单",
+        "value": 3421,
+        "icon": "ClockCircleOutlined",
+        "color": "#ffb980"
+    },
+    {
+        "name": "今日未支付订单",
+        "value": 1234,
+        "icon": "CloseCircleOutlined",
+        "color": "#5ab1ef"
+    },
+    {
+        "name": "本月支付订单",
+        "value": 1234,
+        "icon": "CheckCircleOutlined",
+        "color": "#2ec7c9"
+    },
+    {
+        "name": "本月收藏订单",
+        "value": 3421,
+        "icon": "ClockCircleOutlined",
+        "color": "#ffb980"
+    },
+    {
+        "name": "本月未支付订单",
+        "value": 1234,
+        "icon": "CloseCircleOutlined",
+        "color": "#5ab1ef"
+    }
+];
+// 动态获取图标
+const iconToElement = (name) => React.createElement(Icon[name]);
 const Home = () => {
     const userImg = require("../../assets/images/user.png");
 
@@ -49,13 +92,29 @@ const Home = () => {
                 </div>
             </Card>
             <Card>
-                <Table columns={columns} dataSource={tableData} pagination={false}/>
+                <Table columns={columns} dataSource={tableData} pagination={false} rowKey={"name"}/>
             </Card>
         </Col>
 
 
         <Col span={16}>
-
+            <div className={"num-box"}>
+                {
+                    countData.map((item, index) => {
+                        return (
+                            <Card key={index}>
+                                <div className={"icon-box"} style={{background:item.color}}>
+                                    {iconToElement(item.icon)}
+                                </div>
+                                <div className={"detail"}>
+                                    <p className={'num'}>￥{item.value}</p>
+                                    <p className={'text'}>{item.name}</p>
+                                </div>
+                            </Card>
+                        );
+                    })
+                }
+            </div>
         </Col>
     </Row>);
 };

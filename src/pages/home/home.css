@@ -28,3 +28,38 @@
     margin-left: 50px;
     color: #666;
 }
+
+.home .num-box {
+    padding: 0 5px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 10px;
+}
+
+.home .num-box .ant-card .ant-card-body {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.home .num-box .ant-card .ant-card-body .icon-box {
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    line-height: 85px;
+    color: #FFF;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+.home .num-box .detail .num {
+    font-size: 30px;
+}
+
+.home .num-box .detail .text {
+    font-size: 14px;
+    text-align: center;
+    color: #999;
+}
