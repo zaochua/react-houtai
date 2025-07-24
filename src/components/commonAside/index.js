@@ -2,6 +2,7 @@ import {Layout, Menu} from "antd";
 import * as Icon from "@ant-design/icons";
 import React, {useState} from "react";
 import MenuConfig from "../../config";
+import {useLocation, useNavigate} from "react-router-dom";
 
 const {Sider} = Layout;
 
@@ -31,6 +32,13 @@ const items = MenuConfig.map((icon) => {
 
 
 const CommonAside = ({collapse}) => {
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const selectMenu = (e) => {
+        navigate(e.key)
+    };
+
     return (
         <>
             <Sider trigger={null} collapsible collapsed={collapse}>
@@ -41,8 +49,9 @@ const CommonAside = ({collapse}) => {
                     }}
                     theme="dark"
                     mode="inline"
-                    defaultSelectedKeys={["1"]}
+                    defaultSelectedKeys={location.pathname}
                     items={items}
+                    onClick={selectMenu}
                 />
             </Sider>
         </>

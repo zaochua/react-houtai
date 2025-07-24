@@ -7,3 +7,12 @@ export const getData = () => {
         url: "/home/getData"
     });
 };
+
+
+export const getUser = (params) => {
+    return http.request({
+        method: "get",
+        url: "/user/getUser",
+        params
+    });
+};
