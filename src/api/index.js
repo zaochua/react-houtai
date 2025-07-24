@@ -32,3 +32,11 @@ export const editUser = (data) => {
         data
     });
 };
+
+export const delUser = (data) => {
+    return http.request({
+        method: "post",
+        url: "/user/delUser",
+        data
+    });
+};

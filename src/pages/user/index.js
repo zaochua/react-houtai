@@ -1,7 +1,7 @@
 import "./user.css";
 import {Button, DatePicker, Form, Input, InputNumber, Modal, Popconfirm, Select, Table} from "antd";
 import {useEffect, useState} from "react";
-import {addUser, editUser, getUser} from "../../api/index";
+import {addUser, delUser, editUser, getUser} from "../../api/index";
 import dayjs from "dayjs";
 
 
@@ -27,12 +27,19 @@ const User = () => {
     };
     // 提交
     const handleFinish = (e) => {
-        setListData({name: e.name});
+        setListData({name: e.keyword});
     };
+    useEffect(() => {
+        getTableData();
+    }, [listData]);
 
     //删除
-    const handleDelete = (rowData) => {
+    const handleDelete = ({id}) => {
+        console.log(id);
 
+        delUser({id}).then(res => {
+            getTableData();
+        });
     };
 
     const getTableData = () => {
@@ -111,7 +118,7 @@ const User = () => {
                 </Form>
             </div>
 
-            <Table rowKey={"id"} columns={columns} dataSource={tableData}/>
+            <Table style={{marginTop: "10px"}} rowKey={"id"} columns={columns} dataSource={tableData}/>
 
             <Modal title={modalType ? "编辑用户" : "新增用户"}
                    open={isModalOpen}
