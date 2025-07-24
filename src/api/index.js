@@ -16,3 +16,19 @@ export const getUser = (params) => {
         params
     });
 };
+
+export const addUser = (data) => {
+    return http.request({
+        method: "post",
+        url: "/user/addUser",
+        data
+    });
+};
+
+export const editUser = (data) => {
+    return http.request({
+        method: "post",
+        url: "/user/editUser",
+        data
+    });
+};
