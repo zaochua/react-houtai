@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/react-houtai/static/css/main.f296c4bb.css",
-    "main.js": "/react-houtai/static/js/main.9f523134.js",
-    "static/js/453.96453769.chunk.js": "/react-houtai/static/js/453.96453769.chunk.js",
-    "static/media/user.png": "/react-houtai/static/media/user.a0ea5b2fbd3aee525ffe.png",
-    "index.html": "/react-houtai/index.html",
-    "main.f296c4bb.css.map": "/react-houtai/static/css/main.f296c4bb.css.map",
-    "main.9f523134.js.map": "/react-houtai/static/js/main.9f523134.js.map",
-    "453.96453769.chunk.js.map": "/react-houtai/static/js/453.96453769.chunk.js.map"
+    "main.css": "./static/css/main.f296c4bb.css",
+    "main.js": "./static/js/main.fd4c8f50.js",
+    "static/js/453.96453769.chunk.js": "./static/js/453.96453769.chunk.js",
+    "static/media/user.png": "./static/media/user.a0ea5b2fbd3aee525ffe.png",
+    "index.html": "./index.html",
+    "main.f296c4bb.css.map": "./static/css/main.f296c4bb.css.map",
+    "main.fd4c8f50.js.map": "./static/js/main.fd4c8f50.js.map",
+    "453.96453769.chunk.js.map": "./static/js/453.96453769.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f296c4bb.css",
-    "static/js/main.9f523134.js"
+    "static/js/main.fd4c8f50.js"
   ]
 }
