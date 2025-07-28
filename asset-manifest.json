@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/react-houtai/static/css/main.f296c4bb.css",
-    "main.js": "/react-houtai/static/js/main.a5c8b08b.js",
+    "main.js": "/react-houtai/static/js/main.9f523134.js",
     "static/js/453.96453769.chunk.js": "/react-houtai/static/js/453.96453769.chunk.js",
     "static/media/user.png": "/react-houtai/static/media/user.a0ea5b2fbd3aee525ffe.png",
     "index.html": "/react-houtai/index.html",
     "main.f296c4bb.css.map": "/react-houtai/static/css/main.f296c4bb.css.map",
-    "main.a5c8b08b.js.map": "/react-houtai/static/js/main.a5c8b08b.js.map",
+    "main.9f523134.js.map": "/react-houtai/static/js/main.9f523134.js.map",
     "453.96453769.chunk.js.map": "/react-houtai/static/js/453.96453769.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f296c4bb.css",
-    "static/js/main.a5c8b08b.js"
+    "static/js/main.9f523134.js"
   ]
 }
