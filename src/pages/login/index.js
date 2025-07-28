@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {
     Form, Input, Button, Card,
     Alert, Divider, Typography, Space,
@@ -23,9 +23,17 @@ const Login = () => {
     const [loginError, setLoginError] = useState("");
     const navigate = useNavigate();
 
+    useEffect(() => {
+        form.setFieldValue("username","admin")
+        form.setFieldValue("password","admin")
+    }, []);
+
     if (localStorage.getItem("token")) {
         return <Navigate to={"/"} replace/>;
     }
+
+
+
 
     // 表单提交处理
     const handleLogin = async (values) => {
