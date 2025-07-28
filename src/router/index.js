@@ -1,4 +1,5 @@
 import {createBrowserRouter, Navigate} from "react-router-dom";
+import Login from "../pages/login";
 import Main from "../pages/main";
 import Home from "../pages/home";
 import Mall from "../pages/mall";
@@ -42,6 +43,10 @@ const routes = [
                 ]
             }
         ]
+    },
+    {
+        path:"/login",
+        Component:Login
     }
 
 ];

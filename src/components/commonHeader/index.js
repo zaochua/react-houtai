@@ -5,12 +5,15 @@ import {Dropdown} from "antd";
 import {useDispatch} from "react-redux";
 import {collapseMenu} from "../../store/reducers/tab";
 import "./index.css";
+import {useNavigate} from "react-router-dom";
 
 const {Header} = Layout;
 
 const CommonHeader = ({collapse}) => {
+    const navigate = useNavigate();
     const logout = () => {
-
+        localStorage.removeItem("token");
+        navigate("/login");
     };
 
     const items = [
@@ -23,7 +26,7 @@ const CommonHeader = ({collapse}) => {
         {
             key: "2",
             label: (
-                <a onClick={() => logout} target="_blank" rel="noopener noreferrer">退出</a>
+                <a onClick={() => logout()} target="_blank" rel="noopener noreferrer">退出</a>
             )
         }
     ];
@@ -49,7 +52,7 @@ const CommonHeader = ({collapse}) => {
             />
 
             <Dropdown menu={{items}}>
-                <Avatar size={40} src={<img src={require("../../assets/images/user.png")}/>}/>
+                <Avatar size={40} src={<img src={require("../../assets/images/user.png")} alt/>}/>
             </Dropdown>
         </Header>
 

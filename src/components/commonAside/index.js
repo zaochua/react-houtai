@@ -3,6 +3,8 @@ import * as Icon from "@ant-design/icons";
 import React, {useState} from "react";
 import MenuConfig from "../../config";
 import {useLocation, useNavigate} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {selectMenuList} from "../../store/reducers/tab";
 
 const {Sider} = Layout;
 
@@ -34,9 +36,32 @@ const items = MenuConfig.map((icon) => {
 const CommonAside = ({collapse}) => {
     const location = useLocation();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
+    const setTabsList = (val) => {
+        dispatch(selectMenuList(val));
+    };
+
+    // 点击左侧菜单触发
     const selectMenu = (e) => {
-        navigate(e.key)
+        let data;
+        MenuConfig.forEach(item => {
+            if (item.path === e.keyPath[e.keyPath.length - 1]) {
+                data = item;
+                // 如果有二级菜单
+                if (e.keyPath.length > 1) {
+                    data = item.children.find(child => {
+                        return child.path === e.key;
+                    });
+                }
+            }
+        });
+        setTabsList({
+            path: data.path,
+            name: data.name,
+            label: data.label
+        });
+        navigate(e.key);
     };
 
     return (
@@ -49,7 +74,7 @@ const CommonAside = ({collapse}) => {
                     }}
                     theme="dark"
                     mode="inline"
-                    defaultSelectedKeys={location.pathname}
+                    selectedKeys={location.pathname}
                     items={items}
                     onClick={selectMenu}
                 />

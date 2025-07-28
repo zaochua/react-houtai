@@ -40,3 +40,11 @@ export const delUser = (data) => {
         data
     });
 };
+
+export const getMenu = (data) => {
+    return http.request({
+        method: "post",
+        url: "/permission/getMenu",
+        data
+    });
+};

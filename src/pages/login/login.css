@@ -1,0 +1,90 @@
+.login-container {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-row {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.login-card {
+    padding: 32px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+.login-card:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.login-title {
+    color: #1890ff;
+    margin-bottom: 8px !important;
+}
+
+.input-icon {
+    color: rgba(0, 0, 0, 0.45);
+}
+
+.captcha-container {
+    display: flex;
+    align-items: center;
+    height: 40px;
+}
+
+.captcha-image {
+    height: 100%;
+    border-radius: 4px;
+    cursor: pointer;
+    flex: 1;
+}
+
+.refresh-captcha {
+    padding: 0 8px !important;
+    color: #1890ff;
+}
+
+.login-button {
+    height: 45px;
+    font-size: 16px;
+}
+
+.login-other-options {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.login-links a {
+    color: #1890ff;
+    transition: color 0.2s;
+}
+
+.login-links a:hover {
+    color: #096dd9;
+}
+
+.login-footer {
+    text-align: center;
+    margin-top: 24px;
+}
+
+/* 响应式调整 */
+@media (max-width: 576px) {
+    .login-card {
+        padding: 24px 16px;
+    }
+
+    .login-title {
+        font-size: 20px !important;
+    }
+}
