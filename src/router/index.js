@@ -1,4 +1,4 @@
-import {createBrowserRouter, Navigate} from "react-router-dom";
+import {createHashRouter, Navigate} from "react-router-dom";
 import Login from "../pages/login";
 import Main from "../pages/main";
 import Home from "../pages/home";
@@ -52,4 +52,4 @@ const routes = [
 ];
 
 
-export default createBrowserRouter(routes);
+export default createHashRouter(routes);
